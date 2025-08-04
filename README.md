@@ -1,11 +1,11 @@
-# luadec-sys
+# luadec-rust
 
-[![Crates.io](https://img.shields.io/crates/v/luadec-sys.svg)](https://crates.io/crates/luadec-sys)
-[![Documentation](https://docs.rs/luadec-sys/badge.svg)](https://docs.rs/luadec-sys)
+[![Crates.io](https://img.shields.io/crates/v/luadec-rust.svg)](https://crates.io/crates/luadec-rust)
+[![Documentation](https://docs.rs/luadec-rust/badge.svg)](https://docs.rs/luadec-rust)
 
-Raw FFI bindings for [LuaDec](https://github.com/viruscamp/luadec), a Lua 5.1 bytecode decompiler.
+Safe Rust bindings for [LuaDec](https://github.com/viruscamp/luadec), a Lua 5.1 bytecode decompiler.
 
-This crate provides low-level unsafe bindings to the C library. For a safe, high-level API, use the [`luadec`](https://crates.io/crates/luadec) crate instead.
+This crate provides a safe, high-level API for decompiling Lua 5.1 bytecode. It wraps the unsafe FFI bindings to LuaDec in a memory-safe interface.
 
 ## Requirements
 
@@ -21,7 +21,7 @@ This crate provides low-level unsafe bindings to the C library. For a safe, high
 
 ## Safety
 
-This crate is `unsafe` by design as it provides raw FFI bindings. All functions can cause undefined behavior if used incorrectly. Use the safe `luadec` wrapper crate instead.
+This crate provides a safe interface to LuaDec by wrapping the unsafe FFI calls in memory-safe abstractions. All public APIs are designed to prevent undefined behavior and memory safety issues.
 
 ## License
 
