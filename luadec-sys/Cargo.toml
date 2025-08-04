@@ -11,12 +11,7 @@ categories = ["external-ffi-bindings", "parsing"]
 readme = "README.md"
 documentation = "https://docs.rs/luadec-sys"
 build = "build.rs"
-include = [
-    "src/**/*",
-    "build.rs", 
-    "README.md",
-    "vendor/**/*",
-]
+
 exclude = [
     "vendor/**/*.o",
     "vendor/**/*.a", 
