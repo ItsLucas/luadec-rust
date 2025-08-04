@@ -5,13 +5,13 @@ fn main() {
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
     let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
     
-    let lua_dir = format!("{}/../vendor/lua-5.1", manifest_dir);
-    let luadec_dir = format!("{}/../vendor/luadec", manifest_dir);
-    let _bin_dir = format!("{}/../vendor/bin", manifest_dir);
+    let lua_dir = format!("{}/vendor/lua-5.1", manifest_dir);
+    let luadec_dir = format!("{}/vendor/luadec", manifest_dir);
+    let _bin_dir = format!("{}/vendor/bin", manifest_dir);
     let src_dir = format!("{}/src", lua_dir);
     
-    println!("cargo:rerun-if-changed=../vendor/lua-5.1");
-    println!("cargo:rerun-if-changed=../vendor/luadec");
+    println!("cargo:rerun-if-changed=vendor/lua-5.1");
+    println!("cargo:rerun-if-changed=vendor/luadec");
     println!("cargo:rerun-if-changed=src/wrapper.c");
     
     // Determine the platform-specific make target for Lua

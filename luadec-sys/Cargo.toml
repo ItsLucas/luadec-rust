@@ -13,9 +13,22 @@ documentation = "https://docs.rs/luadec-sys"
 build = "build.rs"
 include = [
     "src/**/*",
-    "build.rs",
+    "build.rs", 
     "README.md",
-    "../vendor/**/*",
+    "vendor/**/*",
+]
+exclude = [
+    "vendor/**/*.o",
+    "vendor/**/*.a", 
+    "vendor/**/lua",
+    "vendor/**/luac",
+    "vendor/**/luadec",
+    "vendor/**/luaopswap",
+    "vendor/**/luareplace",
+    "vendor/**/.git*",
+    "vendor/**/test/**",
+    "vendor/**/doc/**",
+    "vendor/**/etc/**",
 ]
 
 [lib]
