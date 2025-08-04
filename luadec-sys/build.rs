@@ -7,7 +7,7 @@ fn main() {
     
     let lua_dir = format!("{}/../vendor/lua-5.1", manifest_dir);
     let luadec_dir = format!("{}/../vendor/luadec", manifest_dir);
-    let bin_dir = format!("{}/../vendor/bin", manifest_dir);
+    let _bin_dir = format!("{}/../vendor/bin", manifest_dir);
     let src_dir = format!("{}/src", lua_dir);
     
     println!("cargo:rerun-if-changed=../vendor/lua-5.1");
