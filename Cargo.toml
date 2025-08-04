@@ -1,11 +1,11 @@
 [package]
-name = "luadec"
+name = "luadec-rust"
 version = "0.1.0"
 edition = "2021"
 authors = ["ItsLucas <itslucas@itslucas.me>"]
 description = "Safe Rust bindings for LuaDec - A Lua 5.1 bytecode decompiler"
-repository = "https://github.com/viruscamp/luadec"
-homepage = "https://github.com/viruscamp/luadec"
+repository = "https://github.com/ItsLucas/luadec-rust"
+homepage = "https://github.com/ItsLucas/luadec-rust"
 documentation = "https://docs.rs/luadec"
 readme = "README.md"
 license = "MIT"
