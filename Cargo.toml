@@ -1,0 +1,52 @@
+[package]
+name = "luadec"
+version = "0.1.0"
+edition = "2021"
+authors = ["ItsLucas <itslucas@itslucas.me>"]
+description = "Safe Rust bindings for LuaDec - A Lua 5.1 bytecode decompiler"
+repository = "https://github.com/viruscamp/luadec"
+homepage = "https://github.com/viruscamp/luadec"
+documentation = "https://docs.rs/luadec"
+readme = "README.md"
+license = "MIT"
+keywords = ["lua", "decompiler", "bytecode", "reverse-engineering", "lua51"]
+categories = ["parsing", "development-tools", "games"]
+rust-version = "1.63"
+
+# Exclude large directories and files from the published crate
+exclude = [
+    "test/",
+    "test-compiled/",
+    "vcproj-*/",
+    "ChunkSpy/",
+    "LuaAssemblyTools/",
+    "bin/",
+    "compare/",
+    "ilua/",
+    "memwatch/",
+    "lua-5.2/",
+    "lua-5.3/",
+    "target/",
+    "*.o",
+    "*.a",
+    "*.exe",
+]
+
+[lib]
+name = "luadec"
+crate-type = ["lib"]
+
+[dependencies]
+luadec-sys = { version = "0.1.0", path = "luadec-sys" }
+thiserror = "1.0"
+
+[dev-dependencies]
+tempfile = "3.0"
+
+[workspace]
+
+[package.metadata.docs.rs]
+# Build docs with all features on docs.rs
+all-features = true
+# Use a specific target for consistent docs
+targets = ["x86_64-unknown-linux-gnu"]
