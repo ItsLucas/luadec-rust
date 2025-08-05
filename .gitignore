@@ -34,3 +34,6 @@ test.lua
 vendor/lua-5.1/src/*.o
 vendor/lua-5.1/src/*.a
 vendor/luadec/*.o
+
+# LLM
+CLAUDE.md

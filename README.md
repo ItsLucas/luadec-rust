@@ -19,6 +19,10 @@ This crate provides a safe, high-level API for decompiling Lua 5.1 bytecode. It 
 - macOS (tested)
 - Other Unix-like systems (should work)
 
+## Features
+
+- `lua-5.1-32`: Build with 32-bit Lua 5.1 support (useful for compatibility with older or 32-bit Lua bytecode)
+
 ## Safety
 
 This crate provides a safe interface to LuaDec by wrapping the unsafe FFI calls in memory-safe abstractions. All public APIs are designed to prevent undefined behavior and memory safety issues.
