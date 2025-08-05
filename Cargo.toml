@@ -1,6 +1,6 @@
 [package]
 name = "luadec-rust"
-version = "0.1.6"
+version = "0.1.7"
 edition = "2021"
 authors = ["ItsLucas <itslucas@itslucas.me>"]
 description = "Safe Rust bindings for LuaDec - A Lua 5.1 bytecode decompiler"
@@ -37,7 +37,7 @@ name = "luadec"
 crate-type = ["lib"]
 
 [dependencies]
-luadec-sys = { version = "0.1.5", default-features = false }
+luadec-sys = { version = "0.1.6", default-features = false }
 thiserror = "1.0"
 
 [features]
