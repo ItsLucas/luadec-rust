@@ -1,5 +1,5 @@
 use luadec_sys::{
-    DecompileResult, luadec_decompile_buffer, luadec_free_result, 
+    luadec_result_t, luadec_decompile_buffer, luadec_free_result, 
     luadec_get_result, luadec_get_error
 };
 use std::ffi::CStr;
@@ -46,7 +46,7 @@ pub fn decompile_bytecode_raw(bytecode: &[u8]) -> Result<String> {
 }
 
 /// RAII guard to ensure C memory is freed
-struct ResultGuard(*mut DecompileResult);
+struct ResultGuard(*mut luadec_result_t);
 
 impl Drop for ResultGuard {
     fn drop(&mut self) {
