@@ -3,13 +3,20 @@ use luadec_sys::{
     luadec_get_result, luadec_get_error
 };
 use std::ffi::CStr;
+use std::sync::Mutex;
 use crate::error::{DecompileError, Result};
+
+static DECOMPILE_MUTEX: Mutex<()> = Mutex::new(());
 
 /// Safe wrapper around the C decompilation function
 pub fn decompile_bytecode_raw(bytecode: &[u8]) -> Result<String> {
     if bytecode.is_empty() {
         return Err(DecompileError::InvalidBytecode("Empty bytecode".to_string()));
     }
+    
+    let _lock = DECOMPILE_MUTEX.lock().map_err(|_| {
+        DecompileError::InternalError("Failed to acquire decompilation lock".to_string())
+    })?;
     
     let result_ptr = unsafe {
         luadec_decompile_buffer(

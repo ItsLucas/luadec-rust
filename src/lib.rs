@@ -136,4 +136,30 @@ mod tests {
         let result = decompiler.decompile(&[]);
         assert!(result.is_err());
     }
+
+    #[test]
+    fn test_concurrent_decompile() {
+        use std::thread;
+        use std::sync::Arc;
+        
+        let invalid_bytecode = Arc::new(vec![1, 2, 3, 4, 5]);
+        let mut handles = vec![];
+        
+        // Spawn multiple threads that try to decompile simultaneously
+        for _ in 0..10 {
+            let bytecode = invalid_bytecode.clone();
+            let handle = thread::spawn(move || {
+                let result = decompile(&bytecode);
+                // All should fail with invalid bytecode, but shouldn't crash
+                assert!(result.is_err());
+            });
+            handles.push(handle);
+        }
+        
+        // Wait for all threads to complete
+        for handle in handles {
+            handle.join().expect("Thread panicked");
+        }
+    }
+
 }
